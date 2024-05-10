@@ -1,0 +1,48 @@
+---
+import tailwindIcon from "./icons/tailwind.astro"
+import reactIcon from "./icons/React.astro"
+
+const TAGS = {
+    tailwind: {
+        name: "Tailwind",
+        class: "bg-[#003159] text-white",
+        icon: tailwindIcon
+    },
+    react: {
+      name: "React",
+      class: "bg-white text-black",
+      icon: reactIcon
+    }
+}
+
+const PROJECTS = [
+  {
+    title: "Ecommerce",
+    description:
+      "Ecommerce creado con React y tailwind, consumiendo la FakeStore API",
+    link: "https://peaceful-meerkat-e812e6.netlify.app/",
+    github: "https://github.com/davidG199/Ecommerce-react-vite-and-tailwind",
+    image: "/projects/project1.webp",
+    tags: [TAGS.tailwind, TAGS.react],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ title, description, tags, image }) => (
+    <article>
+      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+      <p class=" text-lg mb-4 text-pretty ">{description}</p>
+      <ul class="flex gap-x-2 flex-row mb-2">
+        {tags.map(tag => (
+          <li>
+            <span class={`flex gap-x-1 rounded-full text-xs py-1 px-3 ${tag.class}`}>
+            <tag.icon class="size-4"/>
+            {tag.name}</li>
+            </span>
+        ))}
+      </ul>
+      <img class="rounded shadow-2xl shadow-white/10" src={image} alt={`Captura de pantalla del proyecto ${image}`}>
+    </article>
+  ))
+}
