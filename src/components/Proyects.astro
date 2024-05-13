@@ -1,19 +1,28 @@
 ---
-import tailwindIcon from "./icons/tailwind.astro"
-import reactIcon from "./icons/React.astro"
+import tailwindIcon from "./icons/tailwind.astro";
+import reactIcon from "./icons/React.astro";
+import Github from "./icons/Github.astro";
+import LinkButton from "./LinkButton.astro";
+import Link from "./icons/Link.astro";
+import htmlIcon from "./icons/html.astro";
 
 const TAGS = {
-    tailwind: {
-        name: "Tailwind",
-        class: "bg-[#003159] text-white",
-        icon: tailwindIcon
-    },
-    react: {
-      name: "React",
-      class: "bg-white text-black",
-      icon: reactIcon
-    }
-}
+  tailwind: {
+    name: "Tailwind",
+    class: "bg-[#003159] text-white",
+    icon: tailwindIcon,
+  },
+  react: {
+    name: "React",
+    class: "bg-white text-black",
+    icon: reactIcon,
+  },
+  html: {
+    name: "Html",
+    class: " bg-white text-black",
+    icon: htmlIcon,
+  },
+};
 
 const PROJECTS = [
   {
@@ -22,27 +31,72 @@ const PROJECTS = [
       "Ecommerce creado con React y tailwind, consumiendo la FakeStore API",
     link: "https://peaceful-meerkat-e812e6.netlify.app/",
     github: "https://github.com/davidG199/Ecommerce-react-vite-and-tailwind",
-    image: "/projects/project1.webp",
+    image: "/public/projects/project1.webp",
     tags: [TAGS.tailwind, TAGS.react],
+  },
+  {
+    title: "Landing page",
+    description: "Landing page creada con html vanilla y tailwind ",
+    link: "https://davidg199.github.io/Clipboard-landing-page/src/index.html",
+    github:
+      "https://github.com/davidG199/Clipboard-landing-page?tab=readme-ov-file",
+    image: "public/projects/project2.webp",
+    tags: [TAGS.tailwind, TAGS.html],
   },
 ];
 ---
 
-{
-  PROJECTS.map(({ title, description, tags, image }) => (
-    <article>
-      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
-      <p class=" text-lg mb-4 text-pretty ">{description}</p>
-      <ul class="flex gap-x-2 flex-row mb-2">
-        {tags.map(tag => (
-          <li>
-            <span class={`flex gap-x-1 rounded-full text-xs py-1 px-3 ${tag.class}`}>
-            <tag.icon class="size-4"/>
-            {tag.name}</li>
-            </span>
-        ))}
-      </ul>
-      <img class="rounded shadow-2xl shadow-white/10" src={image} alt={`Captura de pantalla del proyecto ${image}`}>
-    </article>
-  ))
-}
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ title, description, tags, image, github, link }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              src={image}
+              alt="ecommerce with react and tailwind"
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex gap-x-2 flex-row mb-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-1 rounded-full text-xs py-1 px-2 ${tag.class}`}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <div class="mt-2 text-gray-700 dark:text-gray-400">
+              {description}
+            </div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <Github class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>

@@ -8,6 +8,9 @@ import SocialPill from "../components/SocialPill.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import CodeIcon from "../components/icons/Code.astro"
 import Proyects from "../components/Proyects.astro";
+import Hero from "@/components/Hero.astro"
+import ProfileCheck from "@/components/icons/ProfileCheck.astro";
+import AboutMe from "@/components/AboutMe.astro";
 
 ---
 
@@ -18,56 +21,32 @@ import Proyects from "../components/Proyects.astro";
 
   <main class="px-4">
     <SectionContainer class="py-44 pb-24">
-      <img
-    class="rounded-full size-12"
-    src="/public/favicon.svg"
-    alt="david logo"
-  />
-      <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
-        Hey, soy David Gómez
-        <a href="#" class="flex justify-center items-center">
-          <Badge>Disponible para trabajar</Badge>
-          <!-- agregar al link mi perfil de linkedin  -->
-        </a>
-      </h1>
-      <h2 class="text-lg lg:text-2xl opacity-80 text-wrap max-w-[700px]">
-        <span> +15 años de experiencia.</span>
-        <span class="opacity-80 text-yellow-200/90"
-          >Desarrollador web y creador de contenido.</span
-        ><span class="text-red-100/90"> De medellin colombia.</span>
-        <span class="opacity-85">
-          especializado en crear soluciones y aplicaciones unicas
-        </span>
-      </h2>
-
-      <nav class="flex gap-4 mt-8 flex-wrap">
-        <SocialPill href="#linkedIn">
-          <LinkedInIcon class="size-4 md:size-6" />
-          LinkedIn
-        </SocialPill>
-        <SocialPill href="https://github.com/davidG199">
-          <GithubIcon class="size-4 md:size-6" />
-          Github
-        </SocialPill>
-        <SocialPill href="https://github.com/davidG199">
-          <MailIcon class="size-4 md:size-6" />
-          david.gomez04@hotmail.com
-        </SocialPill>
-      </nav>
-
-      <!-- aca va la experiencia, como aun no tengo no coloco nada -->
-
+      <Hero>
+      </slot>
+      </Hero>
     </SectionContainer>
-
-    <SectionContainer id="proyectos">
-      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-        <CodeIcon/>
-        Proyectos
+    
+    <!-- aca va la experiencia, como aun no tengo no coloco nada -->
+    <div class="space-y-24">
+      <SectionContainer id="proyectos">
+        <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+          <CodeIcon class="size-7"/>
+          Proyectos
+        </h2>
+        <Proyects/>
+      </SectionContainer>
+  
+      <SectionContainer id="sobre-mi">
+        <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+      >
+        <ProfileCheck class="size-8" />
+        Sobre mí
       </h2>
-      <Proyects/>
-    </SectionContainer>
-
-   
-
+      <AboutMe />
+      </SectionContainer>
+    </div>
   </main>
 </Layout>
