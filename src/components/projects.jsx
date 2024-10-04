@@ -6,6 +6,8 @@ import { FaHtml5 } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { CiDesktop } from "react-icons/ci";
 import { SiPlatzi } from "react-icons/si";
+import { FaArrowRight } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 function Projects() {
   const TAGS = {
@@ -75,7 +77,7 @@ function Projects() {
   ];
 
   return (
-    <section id="projects">
+    <section id="projects" className="scroll-mt-16 mb-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
       <div className="mb-12 sticky top-0 z-20 -mx-6 w-full px-6 py-5 backdrop-blur">
         <h2 className="font-bold uppercase tracking-widest text-yellow-100">
           Projects
@@ -115,7 +117,7 @@ function Projects() {
                         </span>
                       </a>
                     </span>
-                    <p className="text-gray-400 mt-4">{description}</p>
+                    <p className="text-gray-400 mt-4 leading-normal text-sm">{description}</p>
                     <ul className="flex items-center gap-2 justify-center sm:justify-start my-4 flex-wrap">
                       {tags.map((tag, key) => (
                         <li key={key}>
@@ -138,12 +140,15 @@ function Projects() {
           )}
         </ul>
         <div>
-          <a
-            href="#contact"
-            className="block text-white font-bold uppercase tracking-widest hover:text-yellow-200"
+          <Link
+            to="/ProjectsPage"
+            className="flex items-center text-white font-bold uppercase tracking-widest hover:text-yellow-200"
           >
             Ver más proyectos
-          </a>
+            <span className=" inline-block">
+              <FaArrowRight className="ml-2 "/>
+            </span>
+          </Link>
         </div>
       </div>
     </section>
