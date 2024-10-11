@@ -13,6 +13,7 @@ import { FaPython } from "react-icons/fa";
 import { SiFastapi } from "react-icons/si";
 import { DiMsqlServer } from "react-icons/di";
 import { Link } from "react-router-dom";
+import { FaCss3Alt } from "react-icons/fa";
 
 function Projects() {
   const TAGS = {
@@ -71,6 +72,11 @@ function Projects() {
       class: "bg-[#009485] text-white",
       icon: SiFastapi,
     },
+    CSS: {
+      name: "CSS",
+      class: "bg-[#317bc7fc] text-white",
+      icon: FaCss3Alt,
+    }
   };
 
   const PROJECTS = [
@@ -82,14 +88,14 @@ function Projects() {
       image: "../projects/renta-car.webp",
       link: "https://renta-car-ser.netlify.app/",
       github: "https://github.com/davidG199/RentaCar-localStorage",
-      tags: [TAGS.BOOSTRAP, TAGS.RESPONSIVE, TAGS.JAVASCRIPT, TAGS.HTML],
+      tags: [TAGS.BOOSTRAP, TAGS.RESPONSIVE, TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
     },
     {
       id: 2,
       title: "Project Athena",
       description:
         "Sitio web para administrar una biblioteca, permite guardar, buscar, eliminar y editar libros, tambien regitra y permite iniciar sesion. se utiliza una api creada con fastapi y sql server para guardar los datos.",
-      link: "",
+      link: "https://github.com/jefer9/Proyecto-Integrador",
       github: "https://github.com/jefer9/Proyecto-Integrador",
       image: "../projects/proyecto-integrador.webp",
       tags: [
@@ -110,7 +116,7 @@ function Projects() {
       link: "https://peaceful-meerkat-e812e6.netlify.app/",
       github: "https://github.com/davidG199/Ecommerce-react-vite-and-tailwind",
       image: "/projects/project1.webp",
-      tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.RESPONSIVE, TAGS.PLATZI],
+      tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.RESPONSIVE, TAGS.PLATZI, TAGS.HTML],
     },
   ];
 
