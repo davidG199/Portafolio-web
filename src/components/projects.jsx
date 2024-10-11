@@ -14,6 +14,7 @@ import { SiFastapi } from "react-icons/si";
 import { DiMsqlServer } from "react-icons/di";
 import { Link } from "react-router-dom";
 import { FaCss3Alt } from "react-icons/fa";
+import cvPdf from "../assets/cv-David-Gomez.pdf"
 
 function Projects() {
   const TAGS = {
@@ -76,7 +77,7 @@ function Projects() {
       name: "CSS",
       class: "bg-[#317bc7fc] text-white",
       icon: FaCss3Alt,
-    }
+    },
   };
 
   const PROJECTS = [
@@ -88,7 +89,13 @@ function Projects() {
       image: "../projects/renta-car.webp",
       link: "https://renta-car-ser.netlify.app/",
       github: "https://github.com/davidG199/RentaCar-localStorage",
-      tags: [TAGS.BOOSTRAP, TAGS.RESPONSIVE, TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
+      tags: [
+        TAGS.BOOSTRAP,
+        TAGS.RESPONSIVE,
+        TAGS.JAVASCRIPT,
+        TAGS.HTML,
+        TAGS.CSS,
+      ],
     },
     {
       id: 2,
@@ -116,7 +123,13 @@ function Projects() {
       link: "https://peaceful-meerkat-e812e6.netlify.app/",
       github: "https://github.com/davidG199/Ecommerce-react-vite-and-tailwind",
       image: "/projects/project1.webp",
-      tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.RESPONSIVE, TAGS.PLATZI, TAGS.HTML],
+      tags: [
+        TAGS.REACT,
+        TAGS.TAILWIND,
+        TAGS.RESPONSIVE,
+        TAGS.PLATZI,
+        TAGS.HTML,
+      ],
     },
   ];
 
@@ -136,9 +149,6 @@ function Projects() {
             ({ id, title, description, image, link, github, tags }) => (
               <li key={id} className="mb-12">
                 <div className=" grid relative gap-4 py-3 transition sm:grid-cols-8 sm:gap-8 md:gap-4 rounded-md  motion-reduce:transition-none lg:-inset-x-6 lg:hover:bg-[var(--bg-color-transparent)] lg:shadow-[inset_0_1px_0_0_rgba(148,163,204,0.01)] hover:drop-shadow-lg">
-
-                  {/* <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:hover:bg-[var(--bg-color-transparent)] lg:shadow-[inset_0_1px_0_0_rgba(148,163,204,0.01)] hover:drop-shadow-lg"></div> */}
-
                   <div className="order-2 w-4/5 mx-auto relative sm:order-1 sm:col-span-2 lg:col-span-3">
                     <img
                       src={image}
@@ -148,23 +158,21 @@ function Projects() {
                     <a
                       href={github}
                       target="_blank"
-                      className="absolute top-4 right-2 bg-gray-800 p-2 rounded-full text-white opacity-80 hover:bg-gray-700 transition-colors hover:opacity-100"
+                      className="absolute top-1 right-2 bg-gray-700 p-2 px-3 rounded-full text-white opacity-90 hover:bg-gray-600 transition-colors hover:opacity-100"
                     >
-                      <FaGithub className=" inline-block mr-1 lg:mr-0" />
-                      <p className="block lg:hidden">codigo</p>
+                      <FaGithub className=" inline-block" />
                     </a>
                   </div>
                   <div className="sm:order-2 sm:col-span-5 z-10">
                     <h3>
                       <a
                         href={link}
-                        className=" inline-flex items-baseline font-medium leading-tight text-base gap-2 "
+                        className=" inline-flex items-baseline font-medium leading-tight text-base gap-2 hover:text-yellow-200/90 focus-visible:text-yellow-200 group/link"
                         target="_blank"
                       >
-                        <p className="font-bold text-white">{title}</p>
+                        <p className="font-bold">{title}</p>
                         <span className=" inline-block">
-                          {/* arreglar la animacion del icono */}
-                          <MdArrowOutward className=" inline-block h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-1" />
+                          <MdArrowOutward className=" inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none" />
                         </span>
                       </a>
                     </h3>
@@ -196,13 +204,24 @@ function Projects() {
         <div>
           <Link
             to="/ProjectsPage"
-            className="flex items-center text-white font-bold uppercase tracking-widest hover:text-yellow-200"
+            className="inline-flex items-baseline font-bold uppercase tracking-widest gap-2 hover:text-yellow-200 focus-visible:text-yellow-200 group/link"
           >
             Ver más proyectos
             <span className=" inline-block">
-              <FaArrowRight className="ml-2 " />
+              <FaArrowRight className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:translate-x-2 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none" />
             </span>
           </Link>
+        </div>
+        <div className="mt-8">
+          <a
+            href={cvPdf}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center   text-white font-bold uppercase tracking-widest hover:text-yellow-200"
+          >
+            {/* <FaFilePdf className="mr-2" /> */}
+            ver cv
+          </a>
         </div>
       </div>
     </section>
