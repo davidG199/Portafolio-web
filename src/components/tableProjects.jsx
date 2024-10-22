@@ -82,6 +82,38 @@ function TableProjects() {
       link: "https://davidg199.github.io/SGDP/modulos/inicio/menu",
       github: "https://github.com/davidG199/SGDP",
       tecnologias: ["Html", "Boostrap", "Css"],
+    },
+    {
+      id: 11,
+      año: 2024,
+      proyecto: "Weather-api",
+      link: "",
+      github: "https://github.com/davidG199/weather-api",
+      tecnologias: ["Python", "Redis", "Api", "Fastapi"],
+    },
+    {
+      id:12,
+      año: 2024,
+      proyecto: "Temperature-converter",
+      link: "https://temperature-converter-nine-ebon.vercel.app/",
+      github: "https://github.com/davidG199/temperature-converter",
+      tecnologias: ["Html", "Css", "Javascript"],
+    },
+    {
+      id: 13,
+      año: 2024,
+      proyecto: "Github-user-activity",
+      link: "",
+      github: "https://github.com/davidG199/github-user-activity",
+      tecnologias: ["Python", "Githu-api"],
+    },
+    {
+      id: 14,
+      año: 2024,
+      proyecto: "Personal-blog",
+      link: "",
+      github: "https://github.com/davidG199/Personal-blog",
+      tecnologias: ["React", "tailwind", "Fastapi"]
     }
     
   ];
