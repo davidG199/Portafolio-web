@@ -35,7 +35,7 @@ function Header() {
   return (
     <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div>
-        <h1 className="text-slate-200 text-4xl font-bold">David Gómez</h1>
+        <h1 className="text-slate-200 text-3xl lg:text-5xl font-bold">David Gómez</h1>
         <p className="text-yellow-100 text-lg font-medium mt-2 ">
           Desarrollador junior
         </p>
@@ -58,7 +58,7 @@ function Header() {
                   className={`nav-indicator mr-4 h-px w-8 ${
                     activeSection === "about"
                       ? "bg-slate-200 w-16"
-                      : "bg-slate-600"
+                      : "bg-slate-500"
                   } transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none`}
                 ></span>
                 <span className="nav-text text-xs font-bold uppercase tracking-widest transition-all">
@@ -72,14 +72,14 @@ function Header() {
                 className={`group flex items-center py-3 ${
                   activeSection === "projects"
                     ? "text-slate-200"
-                    : "text-slate-600"
+                    : "text-slate-500"
                 }`}
               >
                 <span
                   className={`nav-indicator mr-4 h-px w-8 ${
                     activeSection === "projects"
                       ? "bg-slate-200 w-16"
-                      : "bg-slate-600"
+                      : "bg-slate-500"
                   } transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none`}
                 ></span>
                 <span className="nav-text text-xs font-bold uppercase tracking-widest transition-all">

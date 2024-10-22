@@ -160,7 +160,7 @@ function TableProjects() {
               </td>
 
               <td className="hidden md:table-cell">
-                <a className=" inline-block" href={github} target="_blank">
+                <a className=" inline-block opacity-50 hover:opacity-100" href={github} target="_blank">
                   <FaGithub />
                 </a>
               </td>

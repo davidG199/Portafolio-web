@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root{
-    --bg-color: rgb(23, 25, 34);
+    --bg-color: rgb(35, 35, 35);
     --bg-color-transparent: rgba(94, 99, 122, 0.267);
 }
 
