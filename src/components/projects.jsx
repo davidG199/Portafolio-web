@@ -14,7 +14,10 @@ import { SiFastapi } from "react-icons/si";
 import { DiMsqlServer } from "react-icons/di";
 import { Link } from "react-router-dom";
 import { FaCss3Alt } from "react-icons/fa";
-import cvPdf from "../assets/cv-David-Gomez.pdf"
+import { SiDialogflow } from "react-icons/si";
+import { SiExpress } from "react-icons/si";
+import { FaNodeJs } from "react-icons/fa";
+import cvPdf from "../assets/cv-David-Gomez.pdf";
 
 function Projects() {
   const TAGS = {
@@ -55,7 +58,7 @@ function Projects() {
     },
     JAVASCRIPT: {
       name: "Javascript",
-      class: "bg-[#f7df1e] text-white",
+      class: "bg-[#bfaa00] text-white",
       icon: IoLogoJavascript,
     },
     PYTHON: {
@@ -77,6 +80,21 @@ function Projects() {
       name: "CSS",
       class: "bg-[#317bc7fc] text-white",
       icon: FaCss3Alt,
+    },
+    DIALOGFLOW: {
+      name: "DialogFlow",
+      class: "bg-[#ff3500] text-white",
+      icon: SiDialogflow,
+    },
+    EXPRESS: {
+      name: "Express",
+      class: "bg-[#000000] text-white",
+      icon: SiExpress,
+    },
+    NODE: {
+      name: "Node js",
+      class: "bg-[#00d740] text-white",
+      icon: FaNodeJs,
     },
   };
 
@@ -131,12 +149,31 @@ function Projects() {
         TAGS.HTML,
       ],
     },
+    {
+      id: 4,
+      title: "Chatbot hackaton",
+      description: `Chatbot inteligente orientado a responder preguntas frecuentes sobre el proyecto INGELEAN, como parte de una hackatón nacional. El sistema utiliza Dialogflow como motor de procesamiento de lenguaje natural (NLP), una API propia construida con Node.js + Express y una interfaz frontend en React con modo oscuro y diseño responsive.
+      El proyecto fue desplegado utilizando Vercel y Render.`,
+      link: "https://chatbot-hackaton-talento-tech.vercel.app/",
+      github:
+        "https://github.com/davidG199/chatbot-hackaton-talento-tech/tree/main",
+      image: "/projects/chatbot-project.webp",
+      tags: [
+        TAGS.REACT,
+        TAGS.TAILWIND,
+        TAGS.JAVASCRIPT,
+        TAGS.HTML,
+        TAGS.DIALOGFLOW,
+        TAGS.EXPRESS,
+        TAGS.NODE,
+      ],
+    },
   ];
 
   return (
     <section
       id="projects"
-      className="scroll-mt-16 mb-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+      className="scroll-mt-16 mb-8 md:mb-12 lg:mb-16 lg:scroll-mt-24"
     >
       <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
         <h2 className="font-bold uppercase tracking-widest text-yellow-100">
@@ -147,9 +184,9 @@ function Projects() {
         <ul className="projects-list">
           {PROJECTS.map(
             ({ id, title, description, image, link, github, tags }) => (
-              <li key={id} className="mb-12">
-                <div className=" grid relative gap-4 py-3 transition sm:grid-cols-8 sm:gap-8 md:gap-4 rounded-md  motion-reduce:transition-none lg:-inset-x-6 lg:hover:bg-[var(--bg-color-transparent)] lg:shadow-[inset_0_1px_0_0_rgba(148,163,204,0.01)] hover:drop-shadow-lg">
-                  <div className="order-2 w-4/5 mx-auto relative sm:order-1 sm:col-span-2 lg:col-span-3">
+              <li key={id} className="mb-12 sm:mb-16">
+                <div className="w-full grid relative gap-4 py-3 transition sm:grid-cols-8 lg:grid-cols-12 sm:gap-8 md:gap-4 rounded-md  motion-reduce:transition-none lg:-inset-x-6 lg:hover:bg-[var(--bg-color-transparent)] lg:shadow-[inset_0_1px_0_0_rgba(148,163,204,0.01)] hover:drop-shadow-lg md:px-3">
+                  <div className="order-2 w-3/4 sm:w-11/12 mx-auto relative sm:order-1 sm:col-span-3 lg:col-span-5">
                     <img
                       src={image}
                       alt={title}
@@ -163,7 +200,7 @@ function Projects() {
                       <FaGithub className=" inline-block" />
                     </a>
                   </div>
-                  <div className="sm:order-2 sm:col-span-5 z-10">
+                  <div className="sm:order-2 sm:col-span-5 lg:col-span-7 z-10">
                     <h3>
                       <a
                         href={link}

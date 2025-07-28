@@ -39,8 +39,8 @@ function Header() {
         <p className="text-yellow-100 text-lg font-medium mt-2 ">
           Desarrollador junior
         </p>
-        <p className="text-gray-400/50 text-md mt-4 max-w-xs leading-normal">
-          Construyo aplicaciones web y tipo movil, accesibles y intuitivas para
+        <p className="text-gray-400/50 text-md mt-4 lg:max-w-xs leading-normal">
+          Construyo aplicaciones <strong className=" text-gray-300/90">web</strong> y tipo movil, accesibles y intuitivas para
           cada usuario
         </p>
         <nav className="nav hidden lg:block ">

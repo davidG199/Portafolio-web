@@ -3,7 +3,7 @@ import Projects from "./projects";
 
 function Main() {
     return ( 
-        <main className="pt-24 lg:w-1/2 lg:py-24">
+        <main className="pt-12 lg:pt-24 lg:w-4/5 lg:py-24 ">
             <AboutMe/>
             <Projects/>
         </main>

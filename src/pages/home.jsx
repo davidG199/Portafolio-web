@@ -6,7 +6,7 @@ function Home() {
   return (
     <>
       <Layout>
-        <div className="lg:flex lg:justify-between lg:gap-4">
+        <div className="lg:flex lg:justify-between lg:gap-12">
           <Header />
           <Main />
         </div>
