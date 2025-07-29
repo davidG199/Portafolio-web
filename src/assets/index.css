@@ -5,6 +5,7 @@
 :root{
     --bg-color: rgb(35, 35, 35);
     --bg-color-transparent: rgba(94, 99, 122, 0.267);
+    --bg-card-color: rgb(55, 55, 55);
 }
 
 *{
