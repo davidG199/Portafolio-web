@@ -243,7 +243,7 @@ function Projects() {
             to="/ProjectsPage"
             className="inline-flex items-baseline font-bold uppercase tracking-widest gap-2 hover:text-yellow-200 focus-visible:text-yellow-200 group/link"
           >
-            Ver más proyectos
+            Ver todos mis proyectos
             <span className=" inline-block">
               <FaArrowRight className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:translate-x-2 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none" />
             </span>
