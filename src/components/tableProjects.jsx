@@ -10,10 +10,26 @@ function TableProjects() {
   const [modalData, setModalData] = useState(null);
 
   useEffect(() => {
-    const cached = localStorage.getItem("github_projects");
-    if (cached) {
-      setProjects(JSON.parse(cached));
-      setLoading(false);
+    // let isActive = true;
+
+    const checkLocalStorage = () => {
+      const data = localStorage.getItem("github_projects");
+      if (data) {
+        setProjects(JSON.parse(data));
+        setLoading(false);
+        return true;
+      }
+      return false;
+    };
+
+    if (!checkLocalStorage()) {
+      const interval = setInterval(() => {
+        if (checkLocalStorage()) {
+          clearInterval(interval);
+        }
+      }, 300); // cada 300ms revisa
+
+      return () => clearInterval(interval);
     }
   }, []);
 
