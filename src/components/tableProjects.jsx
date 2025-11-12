@@ -8,6 +8,8 @@ function TableProjects() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [modalData, setModalData] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const PROJECTSPERPAGE = 10;
 
   useEffect(() => {
     // let isActive = true;
@@ -33,6 +35,29 @@ function TableProjects() {
     }
   }, []);
 
+  // logica de paginacion
+  const indexOfLastProject = currentPage * PROJECTSPERPAGE;
+  const indexOfFirstProject = indexOfLastProject - PROJECTSPERPAGE;
+  const currentProjects = projects.slice(
+    indexOfFirstProject,
+    indexOfLastProject
+  );
+
+  // funciones para cambiar de pagina
+  const nextPage = () => {
+    if (currentPage < Math.ceil(projects.length / PROJECTSPERPAGE)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  //funcion para ir a la pagina anterior
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  // si esta cargando, renderizar spinner
   if (loading) {
     return (
       <div className="flex justify-center items-center h-40">
@@ -75,19 +100,19 @@ function TableProjects() {
           </tr>
         </thead>
         <tbody>
-          {projects.map((proj, idx) => (
+          {currentProjects.map((project, index) => (
             <tr
-              key={idx}
+              key={index}
               className="border-b border-slate-300/10 last:border-none align-middle"
             >
               <td className="py-3">
-                <p className=" text-gray-400">{proj.name}</p>
+                <p className=" text-gray-400">{project.name}</p>
               </td>
 
               <td className="py-3 hidden md:table-cell">
                 <div className="flex flex-col gap-1">
                   <ul className="flex flex-wrap gap-1">
-                    {proj.languages.map((lang, i) => (
+                    {project.languages.map((lang, i) => (
                       <li
                         key={i}
                         className="text-xs bg-yellow-200/20 text-yellow-300 px-2 py-1 rounded"
@@ -100,9 +125,9 @@ function TableProjects() {
               </td>
 
               <td className="py-3 hidden lg:table-cell">
-                {proj.topics && proj.topics.length > 0 && (
+                {project.topics && project.topics.length > 0 && (
                   <ul className="flex flex-wrap gap-1 mt-1">
-                    {proj.topics.map((topic, i) => (
+                    {project.topics.map((topic, i) => (
                       <li
                         key={i}
                         className="text-xs bg-purple-200/20 text-purple-300 px-2 py-1 rounded"
@@ -117,15 +142,15 @@ function TableProjects() {
               <td className="px-2">
                 <div className="flex items-center gap-2 h-full">
                   <a
-                    href={proj.html_url}
+                    href={project.html_url}
                     target="_blank"
                     className="text-gray-400 hover:text-gray-200"
                   >
                     <FaGithub />
                   </a>
-                  {proj.homepage && (
+                  {project.homepage && (
                     <a
-                      href={proj.homepage}
+                      href={project.homepage}
                       target="_blank"
                       className="text-gray-400 hover:text-yellow-200"
                     >
@@ -137,7 +162,7 @@ function TableProjects() {
 
               <td className="py-3">
                 <button
-                  onClick={() => setModalData(proj)}
+                  onClick={() => setModalData(project)}
                   className="ml-2 text-sm text-teal-300 hover:underline"
                 >
                   Ver más
@@ -150,23 +175,23 @@ function TableProjects() {
 
       {/* tarjetas para version mobil */}
       <div className="md:hidden mt-8 flex flex-col gap-4">
-        {projects.map((proj, idx) => (
+        {currentProjects.map((project, index) => (
           <div
-            key={idx}
+            key={index}
             className="bg-[var(--bg-card-color)] p-4 rounded-lg shadow"
           >
             <div className="flex items-center justify-between gap-2">
               <h3 className="text-yellow-200/90 font-bold text-lg">
-                {proj.name}
+                {project.name}
               </h3>
               <p className="text-sm text-gray-400">
-                {new Date(proj.created_at).getFullYear()}
+                {new Date(project.created_at).getFullYear()}
               </p>
             </div>
             <div className="flex flex-col flex-wrap gap-2 mt-2">
               <p className="text-sm text-gray-400">Lenguajes:</p>
               <div className="flex gap-2">
-                {proj.languages.map((lang, i) => (
+                {project.languages.map((lang, i) => (
                   <span
                     key={i}
                     className="text-xs bg-yellow-200/20 text-yellow-300 px-2 py-1 rounded"
@@ -177,9 +202,9 @@ function TableProjects() {
               </div>
             </div>
             <div className="mt-3 flex gap-4 items-center">
-              {proj.homepage && (
+              {project.homepage && (
                 <a
-                  href={proj.homepage}
+                  href={project.homepage}
                   target="_blank"
                   className="text-sm text-yellow-300 font-bold inline-flex focus-visible:text-yellow-200 group/link"
                 >
@@ -190,7 +215,7 @@ function TableProjects() {
                 </a>
               )}
               <a
-                href={proj.html_url}
+                href={project.html_url}
                 target="_blank"
                 className=" opacity-50 hover:opacity-100 inline-flex items-center gap-2"
               >
@@ -198,7 +223,7 @@ function TableProjects() {
                 <FaGithub />
               </a>
               <button
-                onClick={() => setModalData(proj)}
+                onClick={() => setModalData(project)}
                 className="text-sm text-teal-300 hover:underline ml-auto font-semibold"
               >
                 Ver más
@@ -206,6 +231,17 @@ function TableProjects() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* paginacion */}
+      <div className="flex justify-center text-yellow-200/90 items-center gap-6 mt-8">
+        <button onClick={prevPage}>
+          <IoMdArrowBack className="h-6 w-6 hover:text-yellow-200 hover:scale-110 transform" />
+        </button>
+        <span className=" text-sm">{currentPage}</span>
+        <button onClick={nextPage}>
+          <IoMdArrowBack className="h-6 w-6 rotate-180 hover:text-yellow-200 hover:scale-110 transform" />
+        </button>
       </div>
       {/* modal */}
       <Modal project={modalData} onClose={() => setModalData(null)} />
