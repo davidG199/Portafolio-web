@@ -14,11 +14,11 @@ function AboutMe() {
           <p className="text-gray-400/50 leading-7 mb-4">
             Desarrollador junior, técnico en desarrollo de software; con
             certificación en
-            <strong className=" text-gray-300/90"> Scrum</strong>, y 9 meses de
+            <span className=" text-yellow-200/90"> Scrum</span>, y 9 meses de
             experiencia laboral formal e informal en sector TI y áreas
             administrativas; responsable de verificar órdenes de servicio,
             desarrollo de aplicaciones y
-            <strong className=" text-gray-300/90"> Apis</strong>, escritura de
+            <span className=" text-yellow-200/90"> Apis</span>, escritura de
             código, diseño UX UI, código limpio, relacionamiento con clientes,
             programación orientada a objetos, creación de bases de datos y
             formularios web, distribución de tareas, documentación del
@@ -26,9 +26,9 @@ function AboutMe() {
           </p>
           <p className="text-gray-400/50 leading-7">
             Con Excel intermedio; manejo de
-            <strong className=" text-gray-300/90"> Java</strong>,
-            <strong className=" text-gray-300/90"> JavaScript</strong> y
-            <strong className=" text-gray-300/90"> Python. </strong>
+            <span className=" text-yellow-200/90"> Java</span>,
+            <span className=" text-yellow-200/90"> JavaScript</span> y
+            <span className=" text-yellow-200/90"> Python. </span>
             SQL, MySQL, Mongo DB; React, Tailwind, HTML, Css, FastApi, springboot y sistemas
             Git. Cursos de Frontend; React, Vite, Tailwind Css, E-Commerce y certificación en scrum.
             Competencias en pensamiento analítico, trabajo colaborativo,
