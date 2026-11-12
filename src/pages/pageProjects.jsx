@@ -7,7 +7,7 @@ function PageProject() {
   return (
     <>
       <Layout>
-        <div className="lg:py-24">
+        <div className="mx-auto max-w-screen-xl px-6 py-10 md:px-12 md:py-16 lg:px-20 lg:py-24">
           <Link
             to="/"
             className="group mb-2 inline-flex items-center font-semibold leading-tight text-yellow-200/90"

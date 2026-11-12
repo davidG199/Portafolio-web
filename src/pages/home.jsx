@@ -4,7 +4,6 @@ import Layout from "../components/layout";
 import Main from "../components/main";
 import { fetchApi } from "../utils/peticionApi";
 
-//TODO:resolver bug carga de proyectos
 
 function Home() {
   //llamo a la api, al cargar el home, esto evita tiempo de carga en la pagina con todos mis proyectos
@@ -30,7 +29,7 @@ function Home() {
   return (
     <>
       <Layout>
-        <div className="lg:flex lg:justify-between lg:gap-12">
+        <div className="mx-auto max-w-screen-xl px-6 py-10 md:px-12 md:py-16 lg:flex lg:gap-16 lg:px-20 lg:py-0">
           <Header />
           <Main />
         </div>

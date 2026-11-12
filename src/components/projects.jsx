@@ -18,6 +18,7 @@ import { SiDialogflow } from "react-icons/si";
 import { SiExpress } from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa";
 import cvPdf from "../assets/cv-David-Gomez.pdf";
+import { motion } from "framer-motion";
 
 function Projects() {
   const TAGS = {
@@ -104,7 +105,7 @@ function Projects() {
       title: "Renta-Car",
       description:
         "Sitio web para la renta de autos, desde la vista del cliente y el administrador, permite rentar autos y devolverlos, tambien permite registrar usuarios y logearse, mediante el uso del localStorage para la persistencia de datos.",
-      image: "../projects/renta-car.webp",
+      image: "/projects/renta-car.webp",
       link: "https://renta-car-ser.netlify.app/",
       github: "https://github.com/davidG199/RentaCar-localStorage",
       tags: [
@@ -122,7 +123,7 @@ function Projects() {
         "Sitio web para administrar una biblioteca, permite guardar, buscar, eliminar y editar libros, tambien regitra y permite iniciar sesion. se utiliza una api creada con fastapi y sql server para guardar los datos.",
       link: "https://github.com/jefer9/Proyecto-Integrador",
       github: "https://github.com/jefer9/Proyecto-Integrador",
-      image: "../projects/proyecto-integrador.webp",
+      image: "/projects/proyecto-integrador.webp",
       tags: [
         TAGS.TAILWIND,
         TAGS.HTML,
@@ -173,67 +174,104 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="scroll-mt-16 mb-8 md:mb-12 lg:mb-16 lg:scroll-mt-24"
+      className="scroll-mt-16 mb-8 lg:scroll-mt-24"
     >
       <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-        <h2 className="font-bold uppercase tracking-widest text-yellow-100">
+        <h2 className="font-bold uppercase tracking-[0.25em] text-yellow-100">
           Proyectos
         </h2>
       </div>
       <div>
         <ul className="projects-list">
           {PROJECTS.map(
-            ({ id, title, description, image, link, github, tags }) => (
-              <li key={id} className="mb-12 sm:mb-16">
-                <div className="w-full grid relative gap-4 py-3 transition sm:grid-cols-8 lg:grid-cols-12 sm:gap-8 md:gap-4 rounded-md  motion-reduce:transition-none lg:-inset-x-6 lg:hover:bg-[var(--bg-color-transparent)] lg:shadow-[inset_0_1px_0_0_rgba(148,163,204,0.01)] hover:drop-shadow-lg md:px-3">
-                  <div className="order-2 w-3/4 sm:w-11/12 mx-auto relative sm:order-1 sm:col-span-3 lg:col-span-5">
-                    <img
-                      src={image}
-                      alt={title}
-                      className=" rounded-md border-2 border-gray-800"
-                    />
-                    <a
-                      href={github}
-                      target="_blank"
-                      className="absolute top-1 right-2 bg-gray-700 p-2 px-3 rounded-full text-white opacity-90 hover:bg-gray-600 transition-colors hover:opacity-100"
-                    >
-                      <FaGithub className=" inline-block" />
-                    </a>
+            ({ id, title, description, image, link, github, tags }, index) => (
+              <motion.li
+                key={id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.55, delay: index * 0.06 }}
+                className="mb-10 sm:mb-14"
+              >
+                <article
+                  className="group relative grid w-full gap-6 rounded-lg border border-zinc-800/80 bg-zinc-900/30 p-4 transition-all duration-300 hover:bg-zinc-900/70 hover:shadow-[0_16px_40px_rgba(0,0,0,0.22)] motion-reduce:transition-none sm:grid-cols-8 sm:gap-8 sm:p-5 lg:grid-cols-12"
+                >
+                  <div
+                    className={`relative order-2 mx-auto w-full overflow-hidden border border-zinc-800/90 bg-zinc-950/70 sm:order-1 sm:w-11/12 lg:col-span-5 ${
+                      index % 2 === 1 ? "lg:order-2" : "lg:order-1"
+                    }`}
+                  >
+                    <div className="relative flex min-h-[220px] items-center justify-center bg-gradient-to-b from-zinc-900/30 to-transparent p-3 sm:min-h-[260px] sm:p-5">
+                      <img
+                        src={image}
+                        alt={title}
+                        className="max-h-[250px] w-auto max-w-full object-contain grayscale-[25%] transition duration-500 group-hover:grayscale-0"
+                      />
+                    </div>
+                    <div className="pointer-events-none select-none border-t border-zinc-800/80 bg-zinc-950/90 px-3 py-3">
+                      <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1">
+                        <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-yellow-300/70">
+                        </span>
+                        {tags.map((tag, key) => (
+                          <span
+                            key={tag.name}
+                            className="inline-flex items-center gap-1 text-[11px] text-zinc-400"
+                          >
+                            {key > 0 && (
+                              <span className="text-zinc-700" aria-hidden="true">
+                                ·
+                              </span>
+                            )}
+                            {tag.name}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <div className="sm:order-2 sm:col-span-5 lg:col-span-7 z-10">
+                  <div
+                    className={`flex flex-col justify-around z-10 sm:order-2 sm:col-span-5 lg:col-span-7 ${
+                      index % 2 === 1 ? "lg:order-1" : "lg:order-2"
+                    }`}
+                  >
                     <h3>
                       <a
                         href={link}
-                        className=" inline-flex items-baseline font-medium leading-tight text-base gap-2 hover:text-yellow-200/90 focus-visible:text-yellow-200 group/link"
                         target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/link inline-flex items-baseline gap-2 pr-8 text-lg font-medium leading-tight text-zinc-100 hover:text-yellow-200/90 focus-visible:text-yellow-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-yellow-300"
                       >
-                        <p className="font-bold">{title}</p>
+                        <span className="font-semibold">{title}</span>
                         <span className=" inline-block">
                           <MdArrowOutward className=" inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none" />
                         </span>
                       </a>
                     </h3>
-                    <p className="text-gray-400 mt-4 leading-normal text-sm">
+                    <p className="mt-4 text-sm leading-relaxed text-zinc-400">
                       {description}
                     </p>
-                    <ul className="flex items-center gap-2 justify-center my-4 flex-wrap">
-                      {tags.map((tag, key) => (
-                        <li key={key}>
-                          <span
-                            className={
-                              tag.class +
-                              " p-2 flex items-center rounded-lg opacity-90"
-                            }
-                          >
-                            <tag.icon className="mr-1 size-4" />
-                            <p className="text-xs">{tag.name}</p>
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="mt-6 flex items-center justify-center gap-5 border-t border-zinc-800/80 pt-4">
+                      <a
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/action inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-yellow-200 transition-colors hover:text-yellow-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-yellow-300"
+                      >
+                        Ver proyecto
+                        <MdArrowOutward className="transition-transform group-hover/action:-translate-y-0.5 group-hover/action:translate-x-0.5" />
+                      </a>
+                      <a
+                        href={github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-zinc-500 transition-colors hover:text-zinc-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-400"
+                      >
+                        <FaGithub />
+                        Código
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </li>
+                </article>
+              </motion.li>
             )
           )}
         </ul>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root{
-    --bg-color: rgb(35, 35, 35);
+    --bg-color: rgb(9, 9, 11);
     --bg-color-transparent: rgba(94, 99, 122, 0.267);
     --bg-card-color: rgb(55, 55, 55);
 }
@@ -20,5 +20,31 @@ html{
 }
 
 body{
-    background: var(--bg-color);
+    background-color: var(--bg-color);
+    background-image:
+        radial-gradient(ellipse 75% 55% at 82% 8%, rgba(202, 138, 4, 0.15), transparent 68%),
+        radial-gradient(ellipse 70% 60% at 12% 88%, rgba(39, 39, 42, 0.5), transparent 70%),
+        linear-gradient(145deg, #09090b 0%, #111113 48%, #09090b 100%);
+    background-attachment: fixed;
+}
+
+#root {
+    position: relative;
+    isolation: isolate;
+}
+
+#root::before {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    content: "";
+    opacity: 0.08;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }

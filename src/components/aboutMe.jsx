@@ -3,15 +3,15 @@ function AboutMe() {
     <>
       <section
         id="about"
-        className=" scroll-mt-16 mb-8 md:mb-16 lg:mb-24 lg:scroll-mt-24"
+        className="scroll-mt-16 mb-24 md:mb-32 lg:scroll-mt-24"
       >
         <div className=" sticky top-0 z-20 -mx-6 w-screen px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-          <h2 className="font-bold uppercase tracking-widest text-yellow-100">
-            Sobre mi
+          <h2 className="font-bold uppercase tracking-[0.25em] text-yellow-100">
+            Sobre mí
           </h2>
         </div>
         <div>
-          <p className="text-gray-400/50 leading-7 mb-4">
+          <p className="mb-5 max-w-2xl text-base leading-relaxed text-zinc-400">
             Desarrollador junior, técnico en desarrollo de software; con
             certificación en
             <span className=" text-yellow-200/90"> Scrum</span>, y 9 meses de
@@ -24,7 +24,7 @@ function AboutMe() {
             formularios web, distribución de tareas, documentación del
             desarrollo, gestión de bases de datos y elaboración de informes.
           </p>
-          <p className="text-gray-400/50 leading-7">
+          <p className="max-w-2xl text-base leading-relaxed text-zinc-400">
             Con Excel intermedio; manejo de
             <span className=" text-yellow-200/90"> Java</span>,
             <span className=" text-yellow-200/90"> JavaScript</span> y
