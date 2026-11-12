@@ -73,7 +73,7 @@ export const Modal = ({ project, onClose }) => {
               {project.description || "Sin descripción disponible."}
             </p>
 
-            <div className="mt-8 grid gap-6 border-y border-zinc-800 py-6 sm:grid-cols-2">
+            <div className="my-6 sm:my-8 grid gap-6 border-y border-zinc-800 py-6 sm:grid-cols-2">
               <div>
                 <h3 className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">
                   Lenguajes

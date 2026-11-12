@@ -4,6 +4,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { Modal } from "./Modal";
 import { motion } from "framer-motion";
+import { IoSearch } from "react-icons/io5";
 
 function TableProjects() {
   const [projects, setProjects] = useState([]);
@@ -103,7 +104,9 @@ function TableProjects() {
           </p>
         </div>
         <label className="flex w-full max-w-sm items-center gap-3 border-b border-zinc-700 pb-2 text-sm text-zinc-400 focus-within:border-yellow-300">
-          <span className="text-yellow-300/70" aria-hidden="true">⌕</span>
+          <span className="text-yellow-300/70" aria-hidden="true">
+            <IoSearch />
+          </span>
           <input
             type="search"
             value={searchTerm}
@@ -113,7 +116,7 @@ function TableProjects() {
           />
         </label>
       </div>
-      <div className="mt-5 flex flex-wrap gap-2">
+      <div className="mt-5 flex justify-center sm:justify-start flex-wrap gap-2">
         {languages.slice(0, 9).map((language) => (
           <button
             key={language}
@@ -131,9 +134,9 @@ function TableProjects() {
       </div>
 
       <table id="content" className="mt-8 hidden w-full border-collapse text-left md:table">
-        <thead className="sticky top-0 z-10 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur">
+        <thead className="sticky top-0 z-10 border-b border-zinc-800 backdrop-blur ">
           <tr className="text-xs uppercase tracking-[0.16em] text-zinc-500">
-            <th scope="col" className="py-4 font-medium">Proyecto</th>
+            <th scope="col" className="py-4 ps-5 font-medium">Proyecto</th>
             <th scope="col" className="hidden py-4 font-medium md:table-cell">Lenguajes</th>
             <th scope="col" className="hidden py-4 font-medium lg:table-cell">Topics</th>
             <th scope="col" className="py-4 font-medium">Enlaces</th>

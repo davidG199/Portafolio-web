@@ -27,7 +27,7 @@ const TOOL_GROUPS = [
     number: "01",
     title: "Frontend",
     summary: "Interfaces que convierten una idea compleja en una experiencia clara.",
-    tools: ["React", "Vite", "Tailwind", "JavaScript"],
+    tools: ["React", "Bootstrap", "Tailwind", "JavaScript", "TypesCript"],
     level: "Dominio principal",
     progress: "w-[88%]",
   },
@@ -36,7 +36,7 @@ const TOOL_GROUPS = [
     number: "02",
     title: "Backend",
     summary: "Servicios y APIs que conectan la experiencia con una lógica confiable.",
-    tools: ["Python", "FastAPI", "Node.js", "Express"],
+    tools: ["Python", "FastAPI", "Node.js", "Express", "Spring Boot"],
     level: "Experiencia práctica",
     progress: "w-[72%]",
   },
@@ -45,7 +45,7 @@ const TOOL_GROUPS = [
     number: "03",
     title: "Datos",
     summary: "Estructuras que mantienen la información ordenada, disponible y útil.",
-    tools: ["SQL Server", "MySQL", "MongoDB", "Git"],
+    tools: ["SQL Server", "MySQL", "MongoDB", "Git", "Firebase"],
     level: "Base sólida",
     progress: "w-[64%]",
   },
@@ -71,7 +71,7 @@ function Main() {
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="mb-8 flex items-end justify-between border-b border-zinc-800 pb-4">
+          <div className="mb-6 flex items-end justify-between border-b border-zinc-800 pb-4">
             <h2 className="text-xs font-bold uppercase tracking-[0.25em] text-yellow-100">
               Cómo trabajo
             </h2>
@@ -81,7 +81,7 @@ function Main() {
             {WORKFLOW.map(({ number, title, description }) => (
               <div
                 key={number}
-                className="grid gap-3 py-5 sm:grid-cols-[4rem_8rem_1fr] sm:gap-5"
+                className="grid items-center gap-3 py-5 sm:grid-cols-[4rem_8rem_1fr] sm:gap-5"
               >
                 <span className="text-xs tabular-nums text-yellow-300/70">
                   {number}
@@ -100,7 +100,7 @@ function Main() {
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.9 }}
         >
           <div className="mb-8 border-b border-zinc-800 pb-4">
             <h2 className="text-xs font-bold uppercase tracking-[0.25em] text-yellow-100">
@@ -108,7 +108,7 @@ function Main() {
             </h2>
           </div>
           <div className="grid gap-8 sm:grid-cols-[minmax(9rem,0.65fr)_1fr] sm:gap-12">
-            <div className="flex flex-row gap-2 sm:flex-col sm:gap-0">
+            <div className="flex flex-row justify-between gap-2 sm:flex-col">
               {TOOL_GROUPS.map(({ id, number, title }) => {
                 const isActive = activeToolGroup.id === id;
 
@@ -121,7 +121,7 @@ function Main() {
                         TOOL_GROUPS.find((group) => group.id === id)
                       )
                     }
-                    className={`group flex items-center gap-3 border-b py-3 text-left text-xs font-bold uppercase tracking-[0.18em] transition-colors sm:border-b-0 sm:border-l-2 sm:pl-4 ${
+                    className={`group flex items-center gap-2 sm:gap-3 border-b py-3.5 text-left text-xs font-bold uppercase tracking-[0.18em] transition-colors sm:border-b-0 sm:border-l-2 sm:pl-4 ${
                       isActive
                         ? "border-yellow-300 text-zinc-100"
                         : "border-zinc-800 text-zinc-600 hover:border-zinc-500 hover:text-zinc-300"
@@ -143,10 +143,10 @@ function Main() {
               transition={{ duration: 0.3 }}
               className="min-h-44 border-t border-zinc-800 pt-5 sm:border-t-0 sm:pt-0"
             >
-              <p className="max-w-md text-base leading-relaxed text-zinc-300">
+              <p className="max-w-md text-center text-base leading-relaxed text-zinc-300">
                 {activeToolGroup.summary}
               </p>
-              <div className="mt-7 flex flex-wrap gap-2">
+              <div className="mt-7 flex justify-center flex-wrap gap-2">
                 {activeToolGroup.tools.map((tool) => (
                   <span
                     key={tool}
@@ -167,10 +167,13 @@ function Main() {
             </motion.div>
           </div>
         </motion.section>
+
+        {/* componente de proyectos */}
         <Projects />
+
         <motion.section
           id="contact"
-          className="mt-28 border-t border-zinc-800 pt-8"
+          className="mt-20 sm:mt-32 border-t border-zinc-800 pt-8"
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
